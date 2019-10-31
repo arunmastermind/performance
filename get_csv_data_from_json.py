@@ -24,18 +24,22 @@ writer2 = csv.writer(myfile2)
 for i in data:
     closeScores = ([list(a.values()) for a in i.values()])
     for i in closeScores[0]:
-        aa = (list(i[0].values())[0][0]) + "\n"
-        print(aa)
-        if (list(i[0].values())[0][1]) == 'higher_better':
-            higher_better.append(list(i[0].values())[0][0])
-            myfile1.write(aa)
-            # myfile1.write(list(i[0].values())[0][0])
-            # print((list(i[0].values())[0][0]))
-            # writer1.writerow(aa)
-        else:
-            lower_better.append(list(i[0].values())[0][0])
-            # myfile2.writerow((list(i[0].values())[0][0]))
-            writer2.writerow((list(i[0].values())[0][0]))
+        try:
+            aa = (list(i[0].values())[0][0]) + "\n"
+            print(aa)
+            if (list(i[0].values())[0][1]) == 'higher_better':
+                higher_better.append(list(i[0].values())[0][0])
+                myfile1.write(aa)
+                # myfile1.write(list(i[0].values())[0][0])
+                # print((list(i[0].values())[0][0]))
+                # writer1.writerow(aa)
+            else:
+                lower_better.append(list(i[0].values())[0][0])
+                myfile2.write(aa)
+                # myfile2.writerow((list(i[0].values())[0][0]))
+                # writer2.writerow((list(i[0].values())[0][0]))
+        except:
+            pass
 
 myfile2.close()
 myfile1.close()
